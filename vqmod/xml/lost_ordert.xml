@@ -1,0 +1,51 @@
+<modification>
+<id>Потеряные заказы - уведомление</id>
+<version>1.0</version>
+<vqmver>2.4.0</vqmver>
+<author>SlaSoft</author>
+	<file name="admin/controller/sale/order.php">
+		<operation error="log">
+			<search position="after"><![CDATA[$this->data['orders'] = array();]]></search>
+			<add><![CDATA[
+$data= array ('filter_order_status_id' => 0);
+$order_total_lost = $this->model_sale_order->getTotalOrders($data);
+$this->data['total_lost'] = $order_total_lost;
+$this->data['href_lost'] = $this->url->link('sale/order/', 'token=' . $this->session->data['token'] . '&filter_order_status_id=0','SSL');
+		]]></add>
+		</operation>
+	</file>
+	<file name="admin/view/template/sale/order_list.tpl">
+		<operation error="log">
+			<search position="after"><![CDATA[<form action="" method="post" enctype="multipart/form-data" id="form">]]></search>
+			<add><![CDATA[
+	  <?php if ($total_lost) { ?>
+		<a style="color:red" onclick="location='<?php echo $href_lost; ?>'">Есть потерянные заказы (<?php echo $total_lost ?>)</a>
+	  <?php } ?>
+		]]></add>
+		</operation>
+	</file>
+	<file name="admin/model/sale/order.php">
+		<operation error="log">
+			<search position="after"><![CDATA[public function addOrderHistory($order_id, $data) {]]></search>
+			<add><![CDATA[
+	$sql = "SELECT order_status_id FROM " . DB_PREFIX . "order WHERE order_id = '" . (int)$order_id . "'";
+	$old_status = $this->db->query($sql);
+	$old_status_id =$old_status->row['order_status_id'];
+	
+	if($old_status_id == 0) {
+		$order_product_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product WHERE order_id = '" . (int)$order_id . "'");
+		foreach ($order_product_query->rows as $order_product) {
+			$this->db->query("UPDATE " . DB_PREFIX . "product SET quantity = (quantity - " . (int)$order_product['quantity'] . ") WHERE product_id = '" . (int)$order_product['product_id'] . "' AND subtract = '1'");
+			$order_option_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_option WHERE order_id = '" . (int)$order_id . "' AND order_product_id = '" . (int)$order_product['order_product_id'] . "'");
+			foreach ($order_option_query->rows as $option) {
+				$this->db->query("UPDATE " . DB_PREFIX . "product_option_value SET quantity = (quantity - " . (int)$order_product['quantity'] . ") WHERE product_option_value_id = '" . (int)$option['product_option_value_id'] . "' AND subtract = '1'");
+			}
+		}
+	}
+		]]></add>
+		</operation>
+	</file>
+	
+	
+	
+</modification>

@@ -1,0 +1,154 @@
+---------- Date: 2017-06-01 09:22:24 ~ IP : 188.230.91.196 ----------
+REQUEST URI : /admin/index.php?route=tool/error_log&amp;token=00fa3a48de8468447285632a533ef0e6
+MOD DETAILS:
+   modFile   : /home/moroz01/moroz.rv.ua/opencart/vqmod/xml/vqmod_shop_settings_meta_keywords_1.5.4.1.xml
+   id        : Shop meta_keywords setting
+   version   : 1.1
+   vqmver    : 1.0.8
+   author    : Author: Stalker780
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/headlines.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/search.php] (SKIPPED)
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-06-01 09:59:58 ~ IP : 188.230.91.196 ----------
+REQUEST URI : /admin/index.php?route=extension/module&amp;token=00fa3a48de8468447285632a533ef0e6
+MOD DETAILS:
+   modFile   : /home/moroz01/moroz.rv.ua/opencart/vqmod/xml/vqmod_shop_settings_meta_keywords_1.5.4.1.xml
+   id        : Shop meta_keywords setting
+   version   : 1.1
+   vqmver    : 1.0.8
+   author    : Author: Stalker780
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/headlines.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/search.php] (SKIPPED)
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-06-01 10:00:46 ~ IP : 188.230.91.196 ----------
+REQUEST URI : /admin/index.php?route=catalog/product&amp;token=00fa3a48de8468447285632a533ef0e6
+MOD DETAILS:
+   modFile   : /home/moroz01/moroz.rv.ua/opencart/vqmod/xml/vqmod_shop_settings_meta_keywords_1.5.4.1.xml
+   id        : Shop meta_keywords setting
+   version   : 1.1
+   vqmver    : 1.0.8
+   author    : Author: Stalker780
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/headlines.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/search.php] (SKIPPED)
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-06-01 10:03:48 ~ IP : 188.230.91.196 ----------
+REQUEST URI : /admin/index.php?route=catalog/product/update&amp;token=00fa3a48de8468447285632a533ef0e6&amp;product_id=42
+MOD DETAILS:
+   modFile   : /home/moroz01/moroz.rv.ua/opencart/vqmod/xml/vqmod_shop_settings_meta_keywords_1.5.4.1.xml
+   id        : Shop meta_keywords setting
+   version   : 1.1
+   vqmver    : 1.0.8
+   author    : Author: Stalker780
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/headlines.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/search.php] (SKIPPED)
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-06-01 10:13:50 ~ IP : 188.230.91.196 ----------
+REQUEST URI : /admin/index.php?route=catalog/category/update&amp;token=00fa3a48de8468447285632a533ef0e6&amp;category_id=34
+MOD DETAILS:
+   modFile   : /home/moroz01/moroz.rv.ua/opencart/vqmod/xml/vqmod_shop_settings_meta_keywords_1.5.4.1.xml
+   id        : Shop meta_keywords setting
+   version   : 1.1
+   vqmver    : 1.0.8
+   author    : Author: Stalker780
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/headlines.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/search.php] (SKIPPED)
+MOD DETAILS:
+   modFile   : /home/moroz01/moroz.rv.ua/opencart/vqmod/xml/file_manager_shortcut.xml
+   id        : File Manager Shortcut - DO NOT REMOVE
+   version   : 1.0.0
+   vqmver    : 2.5.1
+   author    : villagedefrance
+
+File Name    : admin/view/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <a href="<li><a href="/livechat/php/app.php?login" target="_blank"><?php echo $text_op_konsultant; ?></a></li>
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-06-01 10:14:19 ~ IP : 188.230.91.196 ----------
+REQUEST URI : /admin/index.php?route=catalog/category/update&amp;token=00fa3a48de8468447285632a533ef0e6&amp;category_id=34
+MOD DETAILS:
+   modFile   : /home/moroz01/moroz.rv.ua/opencart/vqmod/xml/vqmod_shop_settings_meta_keywords_1.5.4.1.xml
+   id        : Shop meta_keywords setting
+   version   : 1.1
+   vqmver    : 1.0.8
+   author    : Author: Stalker780
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/headlines.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/search.php] (SKIPPED)
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-06-01 10:14:43 ~ IP : 188.230.91.196 ----------
+REQUEST URI : /admin/index.php?route=catalog/category/update&amp;token=00fa3a48de8468447285632a533ef0e6&amp;category_id=34
+MOD DETAILS:
+   modFile   : /home/moroz01/moroz.rv.ua/opencart/vqmod/xml/vqmod_shop_settings_meta_keywords_1.5.4.1.xml
+   id        : Shop meta_keywords setting
+   version   : 1.1
+   vqmver    : 1.0.8
+   author    : Author: Stalker780
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/headlines.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/search.php] (SKIPPED)
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-06-01 10:16:16 ~ IP : 188.230.91.196 ----------
+REQUEST URI : /admin/index.php?route=catalog/category/update&amp;token=00fa3a48de8468447285632a533ef0e6&amp;category_id=34
+VQMod::_parseMods - DOM UNABLE TO LOAD: /home/moroz01/moroz.rv.ua/opencart/vqmod/xml/file_manager_shortcut.xml
+MOD DETAILS:
+   modFile   : /home/moroz01/moroz.rv.ua/opencart/vqmod/xml/vqmod_shop_settings_meta_keywords_1.5.4.1.xml
+   id        : Shop meta_keywords setting
+   version   : 1.1
+   vqmver    : 1.0.8
+   author    : Author: Stalker780
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/headlines.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/search.php] (SKIPPED)
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-06-01 10:16:25 ~ IP : 188.230.91.196 ----------
+REQUEST URI : /admin/index.php?route=catalog/category/update&amp;token=00fa3a48de8468447285632a533ef0e6&amp;category_id=34
+MOD DETAILS:
+   modFile   : /home/moroz01/moroz.rv.ua/opencart/vqmod/xml/vqmod_shop_settings_meta_keywords_1.5.4.1.xml
+   id        : Shop meta_keywords setting
+   version   : 1.1
+   vqmver    : 1.0.8
+   author    : Author: Stalker780
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/headlines.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/search.php] (SKIPPED)
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-06-01 10:18:17 ~ IP : 188.230.91.196 ----------
+REQUEST URI : /admin/index.php?route=common/filemanager_full&amp;token=00fa3a48de8468447285632a533ef0e6
+MOD DETAILS:
+   modFile   : /home/moroz01/moroz.rv.ua/opencart/vqmod/xml/vqmod_shop_settings_meta_keywords_1.5.4.1.xml
+   id        : Shop meta_keywords setting
+   version   : 1.1
+   vqmver    : 1.0.8
+   author    : Author: Stalker780
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/headlines.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/search.php] (SKIPPED)
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-06-01 10:32:34 ~ IP : 188.230.91.196 ----------
+REQUEST URI : /admin/index.php?route=catalog/category&amp;token=00fa3a48de8468447285632a533ef0e6
+MOD DETAILS:
+   modFile   : /home/moroz01/moroz.rv.ua/opencart/vqmod/xml/vqmod_shop_settings_meta_keywords_1.5.4.1.xml
+   id        : Shop meta_keywords setting
+   version   : 1.1
+   vqmver    : 1.0.8
+   author    : Author: Stalker780
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/headlines.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [catalog/controller/news/search.php] (SKIPPED)
+----------------------------------------------------------------------
+
+

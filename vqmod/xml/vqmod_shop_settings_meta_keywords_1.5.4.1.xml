@@ -1,0 +1,210 @@
+<modification>
+
+	<id>Shop meta_keywords setting</id>
+	<version>1.1</version>
+	<vqmver>1.0.8</vqmver>
+	<author>Author: Stalker780</author>
+
+	<file name="admin/language/russian/setting/setting.php">
+        <operation>
+            <search position="before"><![CDATA[
+		$_['entry_meta_description']
+            ]]></search>
+            <add><![CDATA[
+		$_['entry_meta_keyword']		= 'Мета-тег "Ключевые слова":';
+            ]]></add>
+        </operation>
+	</file>
+	<file name="admin/language/russian/setting/store.php">
+        <operation>
+            <search position="before"><![CDATA[
+		$_['entry_meta_description']
+            ]]></search>
+            <add><![CDATA[
+		$_['entry_meta_keyword']		= 'Мета-тег "Ключевые слова":';
+            ]]></add>
+        </operation>
+	</file>
+
+	<file name="admin/controller/setting/setting.php">
+        <operation>
+            <search position="replace"><![CDATA[
+		$this->data['entry_meta_description'] = $this->language->get('entry_meta_description');
+            ]]></search>
+            <add><![CDATA[
+		$this->data['entry_meta_description'] = $this->language->get('entry_meta_description');
+		$this->data['entry_meta_keyword'] = $this->language->get('entry_meta_keyword');
+            ]]></add>
+        </operation>
+        <operation>
+            <search position="replace"><![CDATA[
+		if (isset($this->request->post['config_layout_id'])) {
+            ]]></search>
+            <add><![CDATA[
+		if (isset($this->request->post['config_meta_keyword'])) {
+			$this->data['config_meta_keyword'] = $this->request->post['config_meta_keyword'];
+		} else {
+			$this->data['config_meta_keyword'] = $this->config->get('config_meta_keyword');
+		}
+		
+		if (isset($this->request->post['config_layout_id'])) {
+            ]]></add>
+        </operation>
+	</file>
+
+	<file name="admin/controller/setting/store.php">
+        <operation>
+            <search position="replace"><![CDATA[
+		$this->data['entry_meta_description'] = $this->language->get('entry_meta_description');
+            ]]></search>
+            <add><![CDATA[
+		$this->data['entry_meta_description'] = $this->language->get('entry_meta_description');
+		$this->data['entry_meta_keyword'] = $this->language->get('entry_meta_keyword');
+            ]]></add>
+        </operation>
+        <operation>
+            <search position="replace"><![CDATA[
+		if (isset($this->request->post['config_layout_id'])) {
+            ]]></search>
+            <add><![CDATA[
+		if (isset($this->request->post['config_meta_keyword'])) {
+			$this->data['config_meta_keyword'] = $this->request->post['config_meta_keyword'];
+		} elseif (isset($store_info['config_meta_keyword'])) {
+			$this->data['config_meta_keyword'] = $store_info['config_meta_keyword'];		
+		} else {
+			$this->data['config_meta_keyword'] = '';
+		}
+		
+		if (isset($this->request->post['config_layout_id'])) {
+            ]]></add>
+        </operation>
+	</file>
+
+	<file name="admin/view/template/setting/setting.tpl">
+        <operation>
+            <search position="replace"><![CDATA[
+		<td><?php echo $entry_template; ?></td>
+            ]]></search>
+            <add><![CDATA[
+              <td><?php echo $entry_meta_keyword; ?></td>
+              <td><textarea name="config_meta_keyword" cols="40" rows="5"><?php echo $config_meta_keyword; ?></textarea></td>
+            </tr>
+            <tr>
+		<td><?php echo $entry_template; ?></td>
+            ]]></add>
+        </operation>
+	</file>
+	<file name="admin/view/template/setting/store_form.tpl">
+        <operation>
+            <search position="replace"><![CDATA[
+		<td><?php echo $entry_template; ?></td>
+            ]]></search>
+            <add><![CDATA[
+              <td><?php echo $entry_meta_keyword; ?></td>
+              <td><textarea name="config_meta_keyword" cols="40" rows="5"><?php echo $config_meta_keyword; ?></textarea></td>
+            </tr>
+            <tr>
+		<td><?php echo $entry_template; ?></td>
+            ]]></add>
+        </operation>
+	</file>
+
+	<file name="catalog/controller/common/home.php">
+        <operation>
+            <search position="replace"><![CDATA[
+		$this->document->setDescription($this->config->get('config_meta_description'));
+            ]]></search>
+            <add><![CDATA[
+		$this->document->setDescription($this->config->get('config_meta_description'));
+		$this->document->setKeywords($this->config->get('config_meta_keyword'));
+            ]]></add>
+        </operation>
+	</file>
+	<file name="catalog/controller/information/sitemap.php">
+        <operation>
+            <search position="replace"><![CDATA[
+		$this->document->setTitle($this->language->get('heading_title')); 
+            ]]></search>
+            <add><![CDATA[
+		$this->document->setTitle($this->language->get('heading_title'));
+		$this->document->setDescription($this->config->get('config_meta_description'));
+		$this->document->setKeywords($this->config->get('config_meta_keyword'));
+            ]]></add>
+        </operation>
+	</file>
+	<file name="catalog/controller/information/contact.php">
+        <operation>
+            <search position="replace"><![CDATA[
+		$this->document->setTitle($this->language->get('heading_title'));  
+            ]]></search>
+            <add><![CDATA[
+		$this->document->setTitle($this->language->get('heading_title'));  
+		$this->document->setDescription($this->config->get('config_meta_description'));
+		$this->document->setKeywords($this->config->get('config_meta_keyword'));
+            ]]></add>
+        </operation>
+	</file>
+	<file name="catalog/controller/product/compare.php">
+        <operation>
+            <search position="replace"><![CDATA[
+		$this->document->setTitle($this->language->get('heading_title'));
+            ]]></search>
+            <add><![CDATA[
+		$this->document->setTitle($this->language->get('heading_title'));
+		$this->document->setDescription($this->config->get('config_meta_description'));
+		$this->document->setKeywords($this->config->get('config_meta_keyword'));
+            ]]></add>
+        </operation>
+	</file>
+	<file name="catalog/controller/product/special.php">
+        <operation>
+            <search position="replace"><![CDATA[
+		$this->document->setTitle($this->language->get('heading_title'));
+            ]]></search>
+            <add><![CDATA[
+		$this->document->setTitle($this->language->get('heading_title'));
+		$this->document->setDescription($this->config->get('config_meta_description'));
+		$this->document->setKeywords($this->config->get('config_meta_keyword'));
+            ]]></add>
+        </operation>
+	</file>
+	<file name="catalog/controller/product/search.php">
+        <operation>
+            <search position="replace"><![CDATA[
+		$this->data['breadcrumbs'] = array();
+            ]]></search>
+            <add><![CDATA[
+		$this->document->setDescription($this->config->get('config_meta_description'));
+		$this->document->setKeywords($this->config->get('config_meta_keyword'));
+
+		$this->data['breadcrumbs'] = array();
+            ]]></add>
+        </operation>
+	</file>
+	<file name="catalog/controller/news/headlines.php">
+        <operation>
+            <search position="replace" error="skip"><![CDATA[
+		$this->data['breadcrumbs'] = array();
+            ]]></search>
+            <add><![CDATA[
+		$this->document->setDescription($this->config->get('config_meta_description'));
+		$this->document->setKeywords($this->config->get('config_meta_keyword'));
+
+		$this->data['breadcrumbs'] = array();
+            ]]></add>
+        </operation>
+	</file>
+	<file name="catalog/controller/news/search.php">
+        <operation>
+            <search position="replace" error="skip"><![CDATA[
+		$this->data['breadcrumbs'] = array();
+            ]]></search>
+            <add><![CDATA[
+		$this->document->setDescription($this->config->get('config_meta_description'));
+		$this->document->setKeywords($this->config->get('config_meta_keyword'));
+
+		$this->data['breadcrumbs'] = array();
+            ]]></add>
+        </operation>
+	</file>
+</modification>

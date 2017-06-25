@@ -1,0 +1,134 @@
+<modification>
+	<id><![CDATA[ReferralCheckout]]></id>
+	<version><![CDATA[1.5.x]]></version>
+	<vqmver><![CDATA[2.1.7]]></vqmver>
+	<author><![CDATA[maxidrom.net]]></author>
+	 
+	 <file name="system/library/document.php">
+		<operation>
+			<search position="before"><![CDATA[public function getTitle() {]]></search>
+			<add><![CDATA[ 
+						public function title2uri($sValue,$db) {
+
+							//require_once('config.php');
+							//require_once(DIR_SYSTEM . 'library/db.php');
+							/*$suggested_alias =  str_replace(
+								array('&', '/', '\\', '"', '+',' '), 
+								array('-', '-', '-', '-', '-','-'),  
+								trim($sValue)
+							);*/
+
+							$converter = array(
+								'а' => 'a',   'б' => 'b',   'в' => 'v',
+								'г' => 'g',   'д' => 'd',   'е' => 'e',
+								'ё' => 'e',   'ж' => 'zh',  'з' => 'z',
+								'и' => 'i',   'й' => 'y',   'к' => 'k',
+								'л' => 'l',   'м' => 'm',   'н' => 'n',
+								'о' => 'o',   'п' => 'p',   'р' => 'r',
+								'с' => 's',   'т' => 't',   'у' => 'u',
+								'ф' => 'f',   'х' => 'h',   'ц' => 'c',
+								'ч' => 'ch',  'ш' => 'sh',  'щ' => 'sch',
+								'ь' => '\'',  'ы' => 'y',   'ъ' => '\'',
+								'э' => 'e',   'ю' => 'yu',  'я' => 'ya',
+
+								'А' => 'A',   'Б' => 'B',   'В' => 'V',
+								'Г' => 'G',   'Д' => 'D',   'Е' => 'E',
+								'Ё' => 'E',   'Ж' => 'Zh',  'З' => 'Z',
+								'И' => 'I',   'Й' => 'Y',   'К' => 'K',
+								'Л' => 'L',   'М' => 'M',   'Н' => 'N',
+								'О' => 'O',   'П' => 'P',   'Р' => 'R',
+								'С' => 'S',   'Т' => 'T',   'У' => 'U',
+								'Ф' => 'F',   'Х' => 'H',   'Ц' => 'C',
+								'Ч' => 'Ch',  'Ш' => 'Sh',  'Щ' => 'Sch',
+								'Ь' => '\'',  'Ы' => 'Y',   'Ъ' => '\'',
+								'Э' => 'E',   'Ю' => 'Yu',  'Я' => 'Ya',
+							);
+
+							$sValue = strtr($sValue, $converter); // в транслит 
+							$sValue = strtolower($sValue); // в нижний регистр
+							$sValue = preg_replace('~[^-a-z0-9_]+~u', '-', $sValue);	// заменям все ненужное нам на "-"
+							$suggested_alias = trim($sValue, "-");  // удаляем начальные и конечные '-'
+					//echo $suggested_alias;
+							//$db2 = new DB(DB_DRIVER, DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+							//$registry = new Registry();
+							$query_alias = $db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE `keyword` = '$suggested_alias'");
+					//print_r ($query_alias);
+							if ($query_alias->num_rows) {
+								$suggested_id = $query_alias->row['url_alias_id'];
+								$suggested_alias .= "-$suggested_id";
+							}	
+							return $suggested_alias;
+						}
+							
+							]]></add>
+		</operation>
+	</file>
+	
+	 <file name="admin/model/catalog/product.php">
+	 	<operation>
+		
+		<search position="replace"><![CDATA[if ($data['keyword']) {]]></search>
+			<add><![CDATA[ 
+			if (!$data['keyword']) { 
+				$keyword = $this->document->title2uri($data['product_description'][2]['name'],$this->db);
+				$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'product_id=" . (int)$product_id . "', keyword = '" . $this->db->escape($keyword) . "'");
+			}
+			else{
+							]]></add>
+		
+	 
+							
+	 
+		</operation>
+	</file>
+	
+	 <file name="admin/model/catalog/manufacturer.php">
+	 	<operation>
+		
+		
+		<search position="replace"><![CDATA[if ($data['keyword']) {]]></search>
+			<add><![CDATA[ 
+			if (!$data['keyword']) { 
+				$keyword = $this->document->title2uri($data['name'],$this->db);
+				$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'manufacturer_id=" . (int)$manufacturer_id . "', keyword = '" . $this->db->escape($keyword) . "'");
+			}
+			else{
+							]]></add>
+			 
+		</operation>
+	</file>
+	
+	 <file name="admin/model/catalog/category.php">
+	 	<operation>
+			
+			<search position="replace"><![CDATA[if ($data['keyword']) {]]></search>
+			<add><![CDATA[ 
+			if (!$data['keyword']) { 
+			print_r($data['category_description']);
+				$keyword = $this->document->title2uri($data['category_description'][2]['name'],$this->db);
+				$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'category_id=" . (int)$category_id . "', keyword = '" . $this->db->escape($keyword) . "'");
+			}
+			else{
+							]]></add>
+							
+			 
+		</operation>
+	</file>
+	
+	 <file name="admin/model/catalog/information.php">
+	 	<operation>
+		
+		<search position="replace"><![CDATA[if ($data['keyword']) {]]></search>
+			<add><![CDATA[ 
+			if (!$data['keyword']) { 
+				$keyword = $this->document->title2uri($data['information_description'][2]['title'],$this->db);
+				$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'information_id=" . (int)$information_id . "', keyword = '" . $this->db->escape($keyword) . "'");
+			}
+			else{
+							]]></add>
+			 
+		</operation>
+		
+	</file>
+	
+</modification>

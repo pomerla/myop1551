@@ -1,0 +1,18 @@
+{
+	"description": "The myopencart15511ru A short description of what your package does",
+	"name": "pomerla/myop1551",
+	"type": "project",
+	"homepage": "http://moroz.rv.ua",
+	"license": "MIT",
+	"support": {
+		"forum": "http://moroz.rv.ua/",
+		"wiki": "http://moroz.rv.ua",
+		"source": "https://github.com/pomerla/myop1551"
+	},
+	"require": {
+		"php": ">=5.3.7"
+	},
+	"require-dev": {
+		"pomerla/myop1551": "1.1.*"
+	}
+}
