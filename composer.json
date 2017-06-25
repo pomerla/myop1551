@@ -11,8 +11,5 @@
 	},
 	"require": {
 		"php": ">=5.3.7"
-	},
-	"require-dev": {
-		"pomerla/myop1551": "1.1.*"
 	}
 }
